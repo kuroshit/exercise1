@@ -2,6 +2,7 @@ import Header from "./Header";
 import { useState } from "react";
 import FeedbackStats from "./FeedbackStats";
 import "./App.css";
+import Button from "./Button";
 
 const App = () => {
   const [feedback, setFeedback] = useState({
@@ -21,21 +22,11 @@ const App = () => {
     <>
       <Header name={"Give feedback"} />
 
-      <button
-        className="feedback-button"
-        onClick={() => handleFeedback("good")}
-      >
-        Good
-      </button>
-      <button
-        className="feedback-button"
-        onClick={() => handleFeedback("neutral")}
-      >
-        Neutral
-      </button>
-      <button className="feedback-button" onClick={() => handleFeedback("bad")}>
-        Bad
-      </button>
+      <Button handleClick={() => handleFeedback("good")} text="Good" />
+
+      <Button handleClick={() => handleFeedback("neutral")} text="Neutral" />
+
+      <Button handleClick={() => handleFeedback("bad")} text={"Bad"} />
 
       <Header name={"Statistics"} />
 
