@@ -45,6 +45,8 @@ const App = () => {
     });
   };
 
+  const anecdoteWithMostVotes = anecdotes.reduce((max, anecdote) => max.votes > anecdote.votes ? max : anecdote, anecdotes[0]);
+
   return (
     <>
       <Header name={"Give feedback"} />
@@ -55,15 +57,21 @@ const App = () => {
 
       <Button handleClick={() => handleFeedback("bad")} text={"Bad"} />
 
-      <Header name={"Statistics"} />
+      <Header name={"Statistics"} hsize={'h2'} />
 
       <FeedbackStats feedback={feedback} />
+
+      <Header name={"Anecdote of the day"} hsize={'h2'} />
 
       <Anecdote anecdote={anecdotes[currentAnecdote]} />
 
       <Button handleClick={handleAnecdoteVote} text="Vote" />
 
       <Button handleClick={handleRandomAnecdote} text="Next anecdote" />
+
+      <Header name={"Anecdote with most votes"} hsize={'h2'} />
+
+      <Anecdote anecdote={anecdoteWithMostVotes} />
     </>
   );
 };

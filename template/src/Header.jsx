@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
-const Header = ({ name }) => {
+const Header = ({ name, hsize }) => {
+  const Tag = hsize || 'h1';
   return (
     <header>
-      <h1>{name}</h1>
+      <Tag>{name}</Tag>
     </header>
   );
 };
