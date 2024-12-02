@@ -1,7 +1,14 @@
 const Anecdote = ({ anecdote }) => {
-  return <div>
-    <p>{anecdote}</p>
-  </div>;
+  return (
+    <>
+      <p>{anecdote.text}</p>
+      <div>
+        <p>
+          <strong>Votes:</strong> {anecdote.votes}
+        </p>
+      </div>
+    </>
+  );
 };
 
 export default Anecdote;
