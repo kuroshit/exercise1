@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
-import Part from './Part';
+import Part from "./Part";
 
-const Content = ({ part }) => {
-    return (
-        <>
-        <Part name = {part[0].name} exercises = {part[0].exercises} />
-        <Part name = {part[1].name} exercises = {part[1].exercises} />
-        <Part name = {part[2].name} exercises = {part[2].exercises} />
-        </>
-    )
-}
+const Content = (props) => {
+  return (
+    <>
+      <Part object={props.part[0]} />
+      <Part object={props.part[1]} />
+      <Part object={props.part[2]} />
+    </>
+  );
+};
 
 export default Content;

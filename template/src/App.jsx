@@ -1,50 +1,38 @@
-/* eslint-disable react/prop-types */
-import { useState } from "react"
-import Content from "./Content"
-import Header from "./Header"
-import Total from "./Total"
+import Header from "./Header";
+import { useState } from "react";
+import FeedbackStats from "./FeedbackStats";
+import "./App.css";
+import Button from "./Button";
 
 const App = () => {
-  const [counter, setCounter] = useState(0)
+  const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
-  const handleClick = () => {
-    setCounter(counter + 1)
-  }
-
-  const handleReset = () => {
-    setCounter(0)
-  }
-
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of the component',
-        exercises: 14
-      }
-    ]
-  }
+  const handleFeedback = (feedbackType) => {
+    setFeedback({
+      ...feedback,
+      [feedbackType]: feedback[feedbackType] + 1,
+    });
+  };
 
   return (
-    <div>
-      <Header course={course} />
-      <Content part={course.parts} />
-      <Total total = {course.parts} />
-      <div>
-        <p>This is the counter: {counter}</p>
-      </div>
-      <button onClick={handleClick}>Click me!</button>
-      <button onClick={handleReset}>Reset</button>
-    </div>
-  )
-}
+    <>
+      <Header name={"Give feedback"} />
 
-export default App
+      <Button handleClick={() => handleFeedback("good")} text="Good" />
+
+      <Button handleClick={() => handleFeedback("neutral")} text="Neutral" />
+
+      <Button handleClick={() => handleFeedback("bad")} text={"Bad"} />
+
+      <Header name={"Statistics"} />
+
+      <FeedbackStats feedback={feedback} />
+    </>
+  );
+};
+
+export default App;
