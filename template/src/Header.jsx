@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-const Header = (props) => {
+const Header = ({ name }) => {
     return (
         <header>
-        <h1>{props.course.name}</h1>
+        <h1>{name}</h1>
         </header>
     );
 }

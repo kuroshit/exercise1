@@ -1,33 +1,37 @@
-import Content from "./Content"
 import Header from "./Header"
-import Total from "./Total"
+import { useState } from "react"
+import './App.css'
 
 const App = () => {
+  const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0
+  })
 
-  const course = {
-    name: 'Half Stack application development',
-    parts: [
-      {
-        name: 'Fundamentals of React',
-        exercises: 10
-      },
-      {
-        name: 'Using props to pass data',
-        exercises: 7
-      },
-      {
-        name: 'State of the component',
-        exercises: 14
-      }
-    ]
+  const handleFeedback = (feedbackType) => {
+    setFeedback({
+      ...feedback,
+      [feedbackType]: feedback[feedbackType] + 1
+    })
   }
 
   return (
-    <div>
-      <Header course={course} />
-      <Content part={course.parts} />
-      <Total total = {course.parts} />
+    <>
+    <Header name = {'Give feedback'} />
+
+    <button className = "feedback-button" onClick={() => handleFeedback('good') }>Good</button>
+    <button className = "feedback-button" onClick={() => handleFeedback('neutral') }>Neutral</button>
+    <button className = "feedback-button" onClick={() => handleFeedback('bad') }>Bad</button>
+
+    <Header name = {'Statistics'} />
+
+    <div className="feedback-numbers">
+      <div>Good {feedback.good}</div>
+      <div>Neutral {feedback.neutral}</div>
+      <div>Bad {feedback.bad}</div>
     </div>
+    </>
   )
 }
 
