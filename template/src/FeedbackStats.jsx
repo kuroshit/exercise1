@@ -1,8 +1,9 @@
 const FeedbackStats = ({ feedback }) => {
-  const {good, neutral, bad} = feedback;
+  const { good, neutral, bad } = feedback;
   const total = good + neutral + bad;
-  const average = (good + neutral + bad) / 3
-  const positive = good / (good + neutral + bad) * 100
+  const average = total ? (good + neutral + bad) / 3 : 0;
+  const positive = total ? (good / (good + neutral + bad)) * 100 : 0;
+
   return (
     <>
       <div className="feedback-numbers">
@@ -12,15 +13,9 @@ const FeedbackStats = ({ feedback }) => {
       </div>
 
       <div>
-        <div className="feedback-stats">
-          Total: {total}
-        </div>
-        <div>
-          Average:{" "} {average.toFixed(2)}
-        </div>
-        <div>
-          Positive:{" "} {positive.toFixed(2)}%
-        </div>
+        <div className="feedback-stats">Total: {total}</div>
+        <div>Average: {average.toFixed(2)}</div>
+        <div>Positive: {positive.toFixed(2)}%</div>
       </div>
     </>
   );

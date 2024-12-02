@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 const Header = ({ name }) => {
-    return (
-        <header>
-        <h1>{name}</h1>
-        </header>
-    );
-}
+  return (
+    <header>
+      <h1>{name}</h1>
+    </header>
+  );
+};
 
 export default Header;
