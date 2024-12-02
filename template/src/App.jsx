@@ -1,8 +1,19 @@
+/* eslint-disable react/prop-types */
+import { useState } from "react"
 import Content from "./Content"
 import Header from "./Header"
 import Total from "./Total"
 
 const App = () => {
+  const [counter, setCounter] = useState(0)
+
+  const handleClick = () => {
+    setCounter(counter + 1)
+  }
+
+  const handleReset = () => {
+    setCounter(0)
+  }
 
   const course = {
     name: 'Half Stack application development',
@@ -27,6 +38,11 @@ const App = () => {
       <Header course={course} />
       <Content part={course.parts} />
       <Total total = {course.parts} />
+      <div>
+        <p>This is the counter: {counter}</p>
+      </div>
+      <button onClick={handleClick}>Click me!</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   )
 }

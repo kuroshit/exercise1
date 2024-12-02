@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 
-const Part = (props) => {
+const Part = ({ name, exercises }) => {
     return (
-        <p> {props.object.name} {props.object.exercises} </p>
+        <p> {name} {exercises} </p>
     )
 }
 
