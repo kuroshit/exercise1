@@ -1,5 +1,6 @@
 import Header from "./Header"
 import { useState } from "react"
+import FeedbackStats from "./FeedbackStats"
 import './App.css'
 
 const App = () => {
@@ -26,11 +27,7 @@ const App = () => {
 
     <Header name = {'Statistics'} />
 
-    <div className="feedback-numbers">
-      <div>Good {feedback.good}</div>
-      <div>Neutral {feedback.neutral}</div>
-      <div>Bad {feedback.bad}</div>
-    </div>
+    <FeedbackStats feedback={feedback} />
     </>
   )
 }

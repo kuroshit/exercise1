@@ -17,3 +17,9 @@
 .feedback-button:hover {
     background-color: #e0e0e0; /* Add hover effect */
   }
+
+.feedback-stats {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
